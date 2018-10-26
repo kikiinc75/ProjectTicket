@@ -24,32 +24,38 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="/admin">
+        <a class="navbar-brand brand-logo" href="/">
           <img src="{{url('assets/images/logo.svg')}}" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="/admin">
+        <a class="navbar-brand brand-logo-mini" href="/">
           <img src="{{url('assets/images/logo-mini.svg')}}" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown d-none d-xl-inline-block">
-            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
-              <img class="img-xs rounded-circle" src="{{url('assets/images/faces/face1.jpg')}}" alt="Profile image">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a class="dropdown-item mt-2">
-                Manage Accounts
+            <li class="nav-item dropdown d-none d-xl-inline-block">
+              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <span class="profile-text">Hello, {{ Auth::user()->fullname }}</span>
+                <img class="img-xs rounded-circle" src="{{url('assets/images/faces/face1.jpg')}}" alt="Profile image">
               </a>
-              <a class="dropdown-item">
-                Change Password
-              </a>
-              <a class="dropdown-item">
-                Sign Out
-              </a>
-            </div>
-          </li>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <a class="dropdown-item mt-2">
+                  Manage Accounts
+                </a>
+                <a class="dropdown-item">
+                  Change Password
+                </a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </div>
+            </li>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
@@ -68,9 +74,9 @@
                   <img src="{{url('assets/images/faces/face1.jpg')}}" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Richard V.Welsh</p>
+                  <p class="profile-name">{{ Auth::user()->fullname }}</p>
                   <div>
-                    <small class="designation text-muted">Manager</small>
+                    <small class="designation text-muted">{{ Auth::user()->level }}</small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>
@@ -81,7 +87,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin">
+            <a class="nav-link" href="/">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
