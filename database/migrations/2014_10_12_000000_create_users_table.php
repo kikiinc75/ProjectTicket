@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('fullname');
             $table->enum('level',['admin','operator']);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
