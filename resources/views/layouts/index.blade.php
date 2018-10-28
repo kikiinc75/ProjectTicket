@@ -39,7 +39,7 @@
                 <img class="img-xs rounded-circle" src="{{url('assets/images/faces/face1.jpg')}}" alt="Profile image">
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <a class="dropdown-item mt-2">
+                <a class="dropdown-item mt-2" href="{{route('user.edit', Auth::user()->id)}}">
                   Manage Accounts
                 </a>
                 <a class="dropdown-item">
@@ -148,7 +148,7 @@
                   <a class="nav-link" href="/login"> Login </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/register"> Register </a>
+                  <a class="nav-link" href="/user/create"> Register </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>

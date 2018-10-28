@@ -1,14 +1,49 @@
-@extends('layouts.app')
+@section('js')
+    <script type="text/javascript">
+        function readURL() {
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $(input).prev().attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(function () {
+            $(".uploads").change(readURL)
+            $("#f").submit(function(){
+                // do ajax submit or just classic form submit
+              //  alert("fake subminting")
+                return false
+            })
+        })
+
+
+var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('submit').disabled = false;
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('submit').disabled = true;
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+    </script>
+@stop
+@extends('layouts.index')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('user.store') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -38,12 +73,18 @@
                                 @endif
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Gambar</label>
+                            <div class="col-md-6">
+                                <img class="product" width="200" height="200" />
+                                <input type="file" class="uploads form-control" style="margin-top: 20px;" name="gambar">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" onkeyup='check();' name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +95,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right" onkeyup="check()">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -80,8 +121,8 @@
 
                             <div class="col-md-6">
                                 <select id="level" class="form-control" name="level" value="{{ old('level') }}" required>
-                                  <option value="admin">Admin</option>
-                                  <option value="operator">Operator</option>
+                                  <option value="ADMIN">Admin</option>
+                                  <option value="OPERATOR">Operator</option>
                                 </select>
                                 @if ($errors->has('level'))
                                     <span class="help-block">
