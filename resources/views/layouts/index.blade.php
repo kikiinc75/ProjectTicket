@@ -106,6 +106,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('user.index')}}">Data User</a>
+                </li>
               </ul>
             </div>
           </li>
@@ -133,32 +136,6 @@
               <span class="menu-title">Icons</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-restart"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/login"> Login </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/user/create"> Register </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
-                </li>
-              </ul>
-            </div>
-          </li>
         </ul>
       </nav>
       @yield('content')
@@ -181,6 +158,13 @@
   <!-- Custom js for this page-->
   <script src="{{url('assets/js/dashboard.js')}}"></script>
   <!-- End custom js for this page-->
+  <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('js/sweetalert2.all.js')}}"></script>
+  <script src="{{asset('js/select2.min.js')}}"></script>
+  @section('js')
+
+  @show
 </body>
 
 </html>

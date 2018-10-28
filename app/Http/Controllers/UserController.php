@@ -1,12 +1,13 @@
 <?php
 namespace App\Http\Controllers;
-use RealRashid\SweetAlert\Facades\Alert;
+
 use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 class UserController extends Controller
 {
     /**

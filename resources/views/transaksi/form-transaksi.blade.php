@@ -1,3 +1,13 @@
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#table').DataTable({
+      "iDisplayLength": 50
+    });
+
+} );
+</script>
+@stop
 @extends('layouts.index')
 @section('content')
 <div class="main-panel">
@@ -42,9 +52,6 @@
                           </th>
                           <th>
                             CREATE AT
-                          </th>
-                          <th>
-                            UPDATED AT
                           </th>
                         </tr>
                       </thead>
