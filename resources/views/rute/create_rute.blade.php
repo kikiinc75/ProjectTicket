@@ -69,6 +69,17 @@
                                    @endif
                                </div>
                            </div>
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                               <label for="rute_to" class="col-md-4 control-label">Rute To</label>
+                               <div class="col-md-6">
+                                   <input id="rute_to" type="text" class="form-control" name="rute_to" value="">
+                                   @if ($errors->has('ket'))
+                                       <span class="help-block">
+                                           <strong>{{ $errors->first('ket') }}</strong>
+                                       </span>
+                                   @endif
+                              </div>
+                           </div>
                            <div class="form-group{{ $errors->has('kursi') ? ' has-error' : '' }}">
                                <label for="price" class="col-md-4 control-label">Price</label>
                                <div class="col-md-6">

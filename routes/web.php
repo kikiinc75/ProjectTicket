@@ -14,10 +14,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
-Route::get('/transaksi',function(){return view('transaksi/form-transaksi');});
-Route::get('/transaksi/create-transaksi',function(){return view('transaksi/create-transaksi');});
-Route::get('/customer/form-customer',function(){return view('customer/form-customer');});
-Route::get('/customer/create-customer',function(){return view('customer/create-customer');});
-Route::get('/rute/create-rute',function(){return view('rute/create-rute');});
+Route::get('/transportation/view_transportation',function(){return view('transportation/view_transportation');});
+Route::get('/transportation/create_transportation',function(){return view('transportation/create_transportation');});
+Route::get('/transportation/edit_transportation',function(){return view('transportation/edit_transportation');});
+Route::get('/customer/view_customer',function(){return view('customer/view_customer');});
+Route::get('/customer/edit_customer',function(){return view('customer/edit_customer');});
+Route::get('/customer/create_customer',function(){return view('customer/create_customer');});
+Route::get('/rute/create_rute',function(){return view('rute/create_rute');});
+Route::get('/rute/view_rute',function(){return view('rute/view_rute');});
+Route::get('/rute/edit_rute',function(){return view('rute/edit_rute');});
+Route::get('/reservation/create_reservation',function(){return view('reservation/create_reservation');});
 
 Route::resource('user','UserController');
