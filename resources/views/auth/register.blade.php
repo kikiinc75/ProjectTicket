@@ -43,7 +43,7 @@ var check = function() {
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.store') }}">
+                    <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

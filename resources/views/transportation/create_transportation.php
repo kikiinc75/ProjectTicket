@@ -3,7 +3,7 @@
 <div class="main-panel">
   <div class="content-wrapper">
 
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="post" action="" enctype="multipart/form-data">
         {{ csrf_field() }}
     <div class="row">
                 <div class="col-md-12 d-flex align-items-stretch grid-margin">

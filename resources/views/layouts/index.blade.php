@@ -5,16 +5,19 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
+  <title>Aplikasi Ticket</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{url('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/vendors/css/vendor.bundle.base.css')}}">
   <link rel="stylesheet" href="{{url('assets/vendors/css/vendor.bundle.addons.css')}}">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{url('assets/images/favicon.png')}}" />
 </head>
@@ -36,14 +39,15 @@
             <li class="nav-item dropdown d-none d-xl-inline-block">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <span class="profile-text">Hello, {{ Auth::user()->fullname }}</span>
-                <img class="img-xs rounded-circle" src="{{url('assets/images/faces/face1.jpg')}}" alt="Profile image">
+                @if(Auth::user()->gambar)
+                <img class="img-xs rounded-circle" src="{{url('images/user', Auth::user()->gambar)}}" alt="Profile image">
+                @else
+                <img class="img-xs rounded-circle" src="{{url('images/user/default.png')}}" alt="Profile image">
+                @endif
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <a class="dropdown-item mt-2" href="{{route('user.edit', Auth::user()->id)}}">
                   Manage Accounts
-                </a>
-                <a class="dropdown-item">
-                  Change Password
                 </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -71,7 +75,11 @@
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                  <img src="{{url('assets/images/faces/face1.jpg')}}" alt="profile image">
+                  @if(Auth::user()->gambar)
+                <img src="{{url('images/user', Auth::user()->gambar)}}" alt="Profile image">
+                @else
+                <img src="{{url('images/user/default.png')}}" alt="Profile image">
+                @endif
                 </div>
                 <div class="text-wrapper">
                   <p class="profile-name">{{ Auth::user()->fullname }}</p>
@@ -162,6 +170,8 @@
   <script src="{{asset('js/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('js/sweetalert2.all.js')}}"></script>
   <script src="{{asset('js/select2.min.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  @include('sweet::alert')
   @section('js')
 
   @show

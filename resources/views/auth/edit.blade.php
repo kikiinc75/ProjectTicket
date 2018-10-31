@@ -39,7 +39,8 @@ var check = function() {
 @extends('layouts.index')
 
 @section('content')
-
+<div class="main-panel">
+  <div class="content-wrapper">
 <form action="{{ route('user.update', $data->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('put') }}
@@ -65,7 +66,7 @@ var check = function() {
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                             <label for="username" class="col-md-4 control-label">Username</label>
                             <div class="col-md-12">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ $data->username }}" required>
+                                <input id="username" type="text" class="form-control" name="username" value="{{ $data->username }}" required disabled="true">
                                 @if ($errors->has('username'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('username') }}</strong>
@@ -77,7 +78,7 @@ var check = function() {
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-8 control-label">E-Mail Address</label>
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $data->email }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{$data->email }}" required>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -99,7 +100,7 @@ var check = function() {
                             <div class="col-md-6">
                             <select class="form-control" name="level" required="">
                                 <option value="admin" @if($data->level == 'ADMIN') selected @endif>Admin</option>
-                                <option value="user" @if($data->level == 'OPERATOR') selected @endif>User</option>
+                                <option value="user" @if($data->level == 'OPERATOR') selected @endif>Operator</option>
                             </select>
                             </div>
                         </div>
@@ -136,4 +137,7 @@ var check = function() {
 
 </div>
 </form>
+</div>
+  @include('layouts.footer')
+</div>
 @endsection

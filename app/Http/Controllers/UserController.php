@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
-use RealRashid\SweetAlert\Facades\Alert;
+use Alert;
 class UserController extends Controller
 {
     /**
@@ -84,9 +84,9 @@ class UserController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'fullname' => $request->input('fullname'),
-            'gambar' => $gambar,
             'level' => $request->input('level'),
             'password' => bcrypt(($request->input('password'))),
+            'gambar' => $gambar,
         ]);
 
         Session::flash('message', 'Berhasil ditambahkan!');
