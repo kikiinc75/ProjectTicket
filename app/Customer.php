@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    protected $table='cusromer';
+    protected $table='customer';
     protected $fillable= ['nik','name','address','phone','gender'];
 
     public function planes_reservation(){

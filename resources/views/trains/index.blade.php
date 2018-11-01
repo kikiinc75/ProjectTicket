@@ -17,7 +17,7 @@
   <div class="row">
 
   <div class="col-lg-2">
-    <a href="{{ route('customer.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Customer</a>
+    <a href="{{ route('trains.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Data</a>
   </div>
     <div class="col-lg-12">
                   @if (Session::has('message'))
@@ -30,26 +30,23 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Customer</h4>
+                  <h4 class="card-title">Data Kereta</h4>
                   
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
                       <thead>
                           <tr>
                             <th>
-                              NIK
+                              NAMA KERETA
                             </th>
                             <th>
-                              NAME
+                              ECO SEAT 
                             </th>
                             <th>
-                              ADDRESS
+                              BUS SEAT
                             </th>
                             <th>
-                              PHONE
-                            </th>
-                            <th>
-                              GENDER
+                              EXEC SEAT
                             </th>
                             <th>
                             Action
@@ -60,21 +57,18 @@
                       @foreach($datas as $data)
                         <tr>
                           <td class="py-1">
-                            {{$data->nik}}
+                            {{$data->name}}
                           </td>
                           <td>
-                          <a href="{{route('customer.show', $data->id)}}"> 
-                          {{$data->name}}
+                          <a href="{{route('planes.show', $data->id)}}"> 
+                          {{$data->eco_seat_qty}}
                           </a>
                           </td>
                           <td>
-                            {{$data->address}}
+                            {{$data->bus_seat_qty}}
                           </td>
                           <td>
-                            {{$data->phone}}
-                          </td>
-                          <td>
-                            {{$data->gender}}
+                            {{$data->exec_seat_qty}}
                           </td>
                           <td>
                            <div class="btn-group dropdown">
@@ -82,8 +76,8 @@
                             Action
                           </button>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-                            <a class="dropdown-item" href="{{route('customer.edit', $data->id)}}"> Edit </a>
-                            <form action="{{ route('customer.destroy', $data->id) }}" class="pull-left"  method="post">
+                            <a class="dropdown-item" href="{{route('trains.edit', $data->id)}}"> Edit </a>
+                            <form action="{{ route('trains.destroy', $data->id) }}" class="pull-left"  method="post">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
                             <button class="dropdown-item" onclick="return confirm('Anda yakin ingin menghapus data ini?')"> Delete

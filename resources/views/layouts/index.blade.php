@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{url('assets/vendors/css/vendor.bundle.base.css')}}">
   <link rel="stylesheet" href="{{url('assets/vendors/css/vendor.bundle.addons.css')}}">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-
+  <link rel="stylesheet" href="{{url('assets/vendors/iconfonts/font-awesome/css/font-awesome.css')}}">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -28,10 +28,10 @@
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="/">
-          <img src="{{url('assets/images/logo.svg')}}" alt="logo" />
+          <img src="{{url('images/nexusv1.png')}}" alt="logo" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="/">
-          <img src="{{url('assets/images/logo-mini.svg')}}" alt="logo" />
+          <img src="{{url('images/nexusv1.png')}}" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -103,16 +103,13 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
-              <span class="menu-title">Basic UI Elements</span>
+              <span class="menu-title">Data Aplikasi</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                  <a class="nav-link" href="{{route('customer.index')}}">Data Customer</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="{{route('user.index')}}">Data User</a>
@@ -121,28 +118,38 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
-              <span class="menu-title">Form elements</span>
+            <a class="nav-link" data-toggle="collapse" href="#plane" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon fa fa-plane"></i>
+              <span class="menu-title">Plane</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="plane">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('planes.index')}}">Data Pesawat</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('airport.index')}}">Data Airport</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Charts</span>
+            <a class="nav-link" data-toggle="collapse" href="#train" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon fa fa-train"></i>
+              <span class="menu-title">Train</span>
+              <i class="menu-arrow"></i>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <i class="menu-icon mdi mdi-table"></i>
-              <span class="menu-title">Tables</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/icons/font-awesome.html">
-              <i class="menu-icon mdi mdi-sticker"></i>
-              <span class="menu-title">Icons</span>
-            </a>
+            <div class="collapse" id="train">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('trains.index')}}">Data Kereta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('station.index')}}">Data Station</a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </nav>
