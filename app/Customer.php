@@ -10,9 +10,9 @@ class Customer extends Model
     protected $fillable= ['nik','name','address','phone','gender'];
 
     public function planes_reservation(){
-        return $this->hasMany(planes_reservation::class);
+        return $this->hasMany(Planes_reservation::class);
     }
     public function trains_reservation(){
-        return $this->hasMany(trains_reservation::class);
+        return $this->hasMany(Trains_reservation::class);
     }
 }

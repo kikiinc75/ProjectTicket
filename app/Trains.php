@@ -10,10 +10,6 @@ class Trains extends Model
     protected $fillable = ['name', 'eco_seat_qty', 'bus_seat_qty', 'exec_seat_qty'];
     public function trains_detail()
     {
-    	return $this->hasOne(trains_detail::class);
-    }
-    public function trains_schedule()
-    {
-    	return $this->hasOne(trains_schedule::class);
+    	return $this->hasMany(Trains_detail::class);
     }
 }

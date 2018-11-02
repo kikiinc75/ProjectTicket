@@ -43,12 +43,6 @@ class AirportController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-
-        $users = User::WhereNotExists(function($query) {
-                        $query->select(DB::raw(1))
-                        ->from('airport')
-                        ->whereRaw('airport.id = users.id');
-                     })->get();
         return view('airport.create', compact('users'));
     }
 
@@ -86,18 +80,6 @@ class AirportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        if((Auth::user()->level == 'OPERATOR') && (Auth::user()->id != $id)) {
-                Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-                return redirect()->to('/');
-        }
-
-        $data = Airport::findOrFail($id);
-
-        return view('airport.show', compact('data'));
-    }
-
     public function edit($id)
     {   
        

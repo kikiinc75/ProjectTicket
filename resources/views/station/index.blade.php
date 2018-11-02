@@ -57,9 +57,7 @@
                             {{$data->code}}
                           </td>
                           <td>
-                          <a href="{{route('station.show', $data->id)}}"> 
                           {{$data->city}}
-                          </a>
                           </td>
                           <td>
                             {{$data->name}}

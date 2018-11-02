@@ -43,12 +43,6 @@ class CustomerController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-
-        $users = User::WhereNotExists(function($query) {
-                        $query->select(DB::raw(1))
-                        ->from('customer')
-                        ->whereRaw('customer.id = users.id');
-                     })->get();
         return view('customer.create', compact('users'));
     }
 
@@ -86,23 +80,8 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        if((Auth::user()->level == 'OPERATOR') && (Auth::user()->id != $id)) {
-                Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-                return redirect()->to('/');
-        }
-
-        $data = Customer::findOrFail($id);
-
-        return view('customer.show', compact('data'));
-    }
-
     public function edit($id)
     {   
-       
- 
-
         $data = Customer::findOrFail($id);
         $users = User::get();
         return view('customer.edit', compact('data', 'users'));

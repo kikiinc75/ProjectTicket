@@ -57,9 +57,7 @@
                       @foreach($datas as $data)
                         <tr>
                           <td class="py-1">
-                            <a href="{{route('planes.show', $data->id)}}">
                             {{$data->name}}
-                            </a>
                           </td>
                           <td> 
                           {{$data->eco_seat_qty}}

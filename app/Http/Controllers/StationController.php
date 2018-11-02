@@ -44,12 +44,6 @@ class StationController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-
-        $users = User::WhereNotExists(function($query) {
-                        $query->select(DB::raw(1))
-                        ->from('station')
-                        ->whereRaw('station.id = users.id');
-                     })->get();
         return view('station.create', compact('users'));
     }
 
@@ -87,17 +81,6 @@ class StationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        if((Auth::user()->level == 'OPERATOR') && (Auth::user()->id != $id)) {
-                Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-                return redirect()->to('/');
-        }
-
-        $data = Station::findOrFail($id);
-
-        return view('station.show', compact('data'));
-    }
 
     public function edit($id)
     {   

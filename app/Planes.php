@@ -10,9 +10,6 @@ class Planes extends Model
     protected $fillable = ['name', 'eco_seat_qty', 'bus_seat_qty', 'first_seat_qty'];
     public function planes_detail()
     {
-    	return $this->hasOne(planes_detail::class);
+        return $this->hasMany(Planes_detail::class);
     }
-    public function planes_schedule()
-    {
-    	return $this->hasOne(planes_schedule::class);
-    }}
+}

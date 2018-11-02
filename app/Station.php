@@ -10,6 +10,6 @@ class Station extends Model
     protected $fillable = ['code','city', 'name'];
     public function trains_schedule()
     {
-    	return $this->hasMany(trains_schedule::class);
+    	return $this->hasMany(Trains_schedule::class);
     }
 }

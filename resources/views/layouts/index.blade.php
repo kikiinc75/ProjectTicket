@@ -131,6 +131,9 @@
                 <li class="nav-item">
                   <a class="nav-link " href="{{route('airport.index')}}">Data Airport</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('planes_detail.index')}}">Data Rincian Pesawat</a>
+                </li>
               </ul>
             </div>
           </li>
@@ -147,6 +150,26 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="{{route('station.index')}}">Data Station</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('trains_detail.index')}}">Data Rincian Kereta</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#schedule" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon fa fa-calendar"></i>
+              <span class="menu-title">Schedule</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="schedule">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('planes_schedule.index')}}">Pesawat</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#">Kereta Api</a>
                 </li>
               </ul>
             </div>

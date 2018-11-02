@@ -74,7 +74,7 @@ $(document).ready(function() {
                         <button type="submit" class="btn btn-primary" id="submit">
                                     Update
                         </button>
-                        <a href="" class="btn btn-light pull-right">Back</a>
+                        <a href="{{route('trains.index')}}" class="btn btn-light pull-right">Back</a>
                     </div>
                   </div>
                 </div>

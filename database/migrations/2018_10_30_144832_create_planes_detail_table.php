@@ -18,9 +18,6 @@ class CreatePlanesDetailTable extends Migration
             $table->integer('planes_id')->unsigned();
             $table->foreign('planes_id')->references('id')->on('planes')->onDelete('cascade');
             $table->string('code')->unique();
-            $table->double('eco_seat_pay',30)->nullable();
-            $table->double('bus_seat_pay',30)->nullable();
-            $table->double('first_seat_pay',30)->nullable();
             $table->timestamps();
         });
     }

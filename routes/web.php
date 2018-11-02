@@ -14,7 +14,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
-Route::get('/transportation/view_transportation',function(){return view('transportation/view_transportation');});
 
 Route::resource('user','UserController');
 Route::resource('customer','CustomerController');
@@ -22,3 +21,6 @@ Route::resource('planes','PlanesController');
 Route::resource('airport','AirportController');
 Route::resource('trains','TrainsController');
 Route::resource('station','StationController');
+Route::resource('trains_detail','TrainsdetailController');
+Route::resource('planes_detail','PlanesdetailController');
+Route::resource('planes_schedule','PlanesscheduleController');

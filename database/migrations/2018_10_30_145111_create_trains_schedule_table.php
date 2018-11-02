@@ -18,9 +18,12 @@ class CreateTrainsScheduleTable extends Migration
             $table->integer('station_id')->unsigned();
             $table->foreign('station_id')->references('id')->on('station')->onDelete('cascade');
             $table->integer('trains_id')->unsigned();
-            $table->foreign('trains_id')->references('id')->on('trains')->onDelete('cascade');
+            $table->foreign('trains_id')->references('id')->on('trains_detail')->onDelete('cascade');
             $table->string('from');
             $table->string('destination');
+            $table->double('eco_seat_pay',30)->nullable();
+            $table->double('bus_seat_pay',30)->nullable();
+            $table->double('first_seat_pay',30)->nullable();
             $table->datetime('boardingtime');
             $table->timestamps();
         });

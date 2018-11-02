@@ -8,13 +8,13 @@ class Planes_schedule extends Model
 {
     protected $table = 'planes_schedule';
     protected $fillable = ['airport_id','planes_id','from', 'destination', 'boardingtime'];
-    public function trains(){
-    	return $this->belongsTo(trains::class);
+    public function planes_detail(){
+    	return $this->belongsTo(Planes_detail::class);
     }
     public function airport(){
-    	return $this->belongsTo(airport::class);
+    	return $this->belongsTo(Airport::class);
     }
     public function planes_reservation(){
-    	return $this->hasMany(trains_reservation::class);
+    	return $this->hasMany(Trains_reservation::class);
     }
 }

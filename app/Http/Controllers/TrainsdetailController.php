@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Planes;
+use App\Trains_detail;
 use App\User;
+use App\Trains;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -12,8 +13,9 @@ use Auth;
 use Alert;
 use DB;
 
-class PlanesController extends Controller
+class TrainsdetailController extends Controller
 {
+    //
     /**
      * Display a listing of the resource.
      *
@@ -24,14 +26,11 @@ class PlanesController extends Controller
     {
         $this->middleware('auth');
     }
-
     public function index()
     {
-
-        $datas = Planes::get();
-        return view('planes.index', compact('datas'));
+        $datas = Trains_detail::get();
+        return view('Trains_detail.index', compact('datas'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -43,7 +42,8 @@ class PlanesController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-        return view('planes.create', compact('users'));
+    	$trains = Trains::get();
+        return view('Trains_detail.create', compact('users','trains'));
     }
 
     /**
@@ -54,23 +54,18 @@ class PlanesController extends Controller
      */
     public function store(Request $request)
     {
-        $count = Planes::where('name',$request->input('name'))->count();
-
-        if($count>0){
-            Session::flash('message', 'Already exist!');
-            Session::flash('message_type', 'danger');
-            return redirect()->to('planes');
-        }
+        $count = Trains_detail::where('code',$request->input('code'))->count();
 
         $this->validate($request, [
-            'name' => 'required|string|max:255',
-            'eco_seat_qty' => 'required|string|max:100'
+            'code' => 'required|string|max:255',
+            'trains_id' => 'required',
+
         ]);
 
-        Planes::create($request->all());
+        $trains_detail = Trains_detail::create($request->all());
 
         alert()->success('Berhasil.','Data telah ditambahkan!');
-        return redirect()->route('planes.index');
+        return redirect()->route('trains_detail.index');
 
     }
 
@@ -80,14 +75,12 @@ class PlanesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+        public function edit($id)
     {   
-       
- 
-
-        $data = Planes::findOrFail($id);
+        $nama_trains=Trains_detail::where('trains_id')->with('Trains')->get();
+        $data = Trains_detail::findOrFail($id);
         $users = User::get();
-        return view('planes.edit', compact('data', 'users'));
+        return view('trains_detail.edit', compact('data', 'users'));
     }
 
     /**
@@ -99,10 +92,10 @@ class PlanesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Planes::find($id)->update($request->all());
+        trains_detail::find($id)->update($request->all());
 
         alert()->success('Berhasil.','Data telah diubah!');
-        return redirect()->to('planes');
+        return redirect()->to('trains_detail');
     }
 
     /**
@@ -111,12 +104,10 @@ class PlanesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-      public function destroy($id)
+    public function destroy($id)
     {
-        Planes::find($id)->delete();
+        Trains_detail::find($id)->delete();
         alert()->success('Berhasil.','Data telah dihapus!');
-        return redirect()->route('planes.index');
+        return redirect()->route('trains.index');
     }
 }
-
-

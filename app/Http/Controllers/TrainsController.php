@@ -30,7 +30,7 @@ class TrainsController extends Controller
     {
 
         $datas = Trains::get();
-        return view('Trains.index', compact('datas'));
+        return view('trains.index', compact('datas'));
     }
 
     /**
@@ -44,12 +44,6 @@ class TrainsController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-
-        $users = User::WhereNotExists(function($query) {
-                        $query->select(DB::raw(1))
-                        ->from('trains')
-                        ->whereRaw('trains.id = users.id');
-                     })->get();
         return view('trains.create', compact('users'));
     }
 
@@ -87,18 +81,6 @@ class TrainsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        if((Auth::user()->level == 'OPERATOR') && (Auth::user()->id != $id)) {
-                Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-                return redirect()->to('/');
-        }
-
-        $data = Trains::findOrFail($id);
-
-        return view('trains.show', compact('data'));
-    }
-
     public function edit($id)
     {   
        
