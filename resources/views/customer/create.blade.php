@@ -37,9 +37,6 @@ var check = function() {
 @stop
 @extends('layouts.index')
 @section('content')
-<div class="main-panel">
-  <div class="content-wrapper">
-
     <form method="POST" action="{{ route('customer.store') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
     <div class="row">
@@ -87,7 +84,7 @@ var check = function() {
                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                                <label for="deskripsi" class="col-md-4 control-label">Phone</label>
                                <div class="col-md-6">
-                                   <input id="phone" type="number" class="form-control" name="phone" value="">
+                                   <input id="phone" type="tel" class="form-control" name="phone" value="">
                                    @if ($errors->has('phone'))
                                        <span class="help-block">
                                            <strong>{{ $errors->first('phone') }}</strong>
@@ -126,8 +123,4 @@ var check = function() {
     </div>
     </form>
 
-  </div>
-  @include('layouts.footer')
-  <!-- partial -->
-  </div>
   @endsection

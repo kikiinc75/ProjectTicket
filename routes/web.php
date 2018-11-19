@@ -24,3 +24,4 @@ Route::resource('station','StationController');
 Route::resource('trains_detail','TrainsdetailController');
 Route::resource('planes_detail','PlanesdetailController');
 Route::resource('planes_schedule','PlanesscheduleController');
+Route::resource('planes_reservation','PlanesreservationController');

@@ -11,9 +11,6 @@
 @extends('layouts.index')
 
 @section('content')
-  
-<div class="main-panel">
-  	<div class="content-wrapper">
   		<div class="row">
 
   <div class="col-lg-2">
@@ -69,7 +66,7 @@
                       @foreach($datas as $data)
                         <tr>
                           <td class="py-1">
-                            {{$data->planes->name}}
+                            {{$data->planes_detail->planes->name}}
                           </td>
                           <td>
                           {{$data->planes_detail->code}}
@@ -119,8 +116,4 @@
               </div>
             </div>
           </div>
-	</div>
-  @include('layouts.footer')
-<!-- partial -->
-</div>
 @endsection

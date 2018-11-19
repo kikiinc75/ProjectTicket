@@ -37,8 +37,6 @@ var check = function() {
 @stop
 @extends('layouts.index')
 @section('content')
-<div class="main-panel">
-  <div class="content-wrapper">
 
     <form method="POST" action="{{ route('station.store') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -99,9 +97,4 @@ var check = function() {
 
     </div>
     </form>
-
-  </div>
-  @include('layouts.footer')
-  <!-- partial -->
-  </div>
   @endsection

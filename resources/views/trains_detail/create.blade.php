@@ -18,10 +18,6 @@
 @extends('layouts.index')
 
 @section('content')
-
-<div class="main-panel">
-    <div class="content-wrapper">
-    
 <form method="POST" action="{{ route('trains_detail.store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 <div class="row">
@@ -75,10 +71,6 @@
 
 </div>
 </form>
-    </div>
-    @include('layouts.footer')
-<!-- partial -->
-</div>
   <!-- Modal -->
         <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg" role="document" >

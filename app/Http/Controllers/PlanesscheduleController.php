@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Planes_schedule;
 use App\Planes_detail;
 use App\Airport;
 use App\User;
 use App\Planes;
-use App\Planes_schedule;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -43,10 +43,10 @@ class PlanesscheduleController extends Controller
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
         }
-        $airport= Airport::get();
-    	$planes = Planes::get();
-    	$planes_detail=Planes_detail::get();
         $planes_schedule=Planes_schedule::get();
+        $airport= Airport::get();
+        $planes = Planes::get();
+        $planes_detail=Planes_detail::get();
         return view('planes_schedule.create', compact('users','planes','airport','planes_detail','planes_schedule'));
     }
 
@@ -58,18 +58,17 @@ class PlanesscheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $count = Planes_schedule::where('code',$request->input('code'))->count();
+        $count = Planes_schedule::where('planes_detail_id',$request->input('planes_detail_id'))->count();
 
         $this->validate($request, [
-            'code' => 'required|string|max:255',
-            'planes_id' => 'required',
+            'planes_detail_id' => 'required',
 
         ]);
 
-        $planes_detail = Planes_detail::create($request->all());
+        $planes_detail = Planes_schedule::create($request->all());
 
         alert()->success('Berhasil.','Data telah ditambahkan!');
-        return redirect()->route('planes_detail.index');
+        return redirect()->route('planes_schedule.index');
 
     }
 
@@ -81,9 +80,9 @@ class PlanesscheduleController extends Controller
      */
         public function edit($id)
     {   
-        $data = Planes_detail::findOrFail($id);
+        $data = Planes_schedule::findOrFail($id);
         $users = User::get();
-        return view('planes_detail.edit', compact('data', 'users'));
+        return view('planes_schedule.edit', compact('data', 'users'));
     }
 
     /**
@@ -95,10 +94,10 @@ class PlanesscheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Planes_detail::find($id)->update($request->all());
+        Planes_schedule::find($id)->update($request->all());
 
         alert()->success('Berhasil.','Data telah diubah!');
-        return redirect()->to('planes_detail');
+        return redirect()->to('planes_schedule');
     }
 
     /**
@@ -109,8 +108,8 @@ class PlanesscheduleController extends Controller
      */
     public function destroy($id)
     {
-        Planes_detail::find($id)->delete();
+        Planes_schedule::find($id)->delete();
         alert()->success('Berhasil.','Data telah dihapus!');
-        return redirect()->route('planes_detail.index');
+        return redirect()->route('planes_schedule.index');
     }
 }

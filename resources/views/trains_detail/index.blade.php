@@ -12,8 +12,6 @@
 
 @section('content')
   
-<div class="main-panel">
-  <div class="content-wrapper">
   <div class="row">
 
   <div class="col-lg-2">
@@ -89,8 +87,4 @@
               </div>
             </div>
           </div>
-            </div>
-  @include('layouts.footer')
-<!-- partial -->
-</div>
 @endsection

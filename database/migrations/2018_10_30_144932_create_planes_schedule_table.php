@@ -17,8 +17,8 @@ class CreatePlanesScheduleTable extends Migration
             $table->increments('id');
             $table->integer('airport_id')->unsigned();
             $table->foreign('airport_id')->references('id')->on('airport')->onDelete('cascade');
-            $table->integer('planes_id')->unsigned();
-            $table->foreign('planes_id')->references('id')->on('planes_detail')->onDelete('cascade');
+            $table->integer('planes_detail_id')->unsigned();
+            $table->foreign('planes_detail_id')->references('id')->on('planes_detail')->onDelete('cascade');
             $table->string('from');
             $table->string('destination');
             $table->double('eco_seat_pay',30)->nullable();

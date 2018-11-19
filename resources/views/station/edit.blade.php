@@ -11,9 +11,6 @@ $(document).ready(function() {
 
 @extends('layouts.index')
 @section('content')
-<div class="main-panel">
-  <div class="content-wrapper">
-
 <form action="{{ route('station.update', $data->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('put') }}
@@ -72,8 +69,4 @@ $(document).ready(function() {
 
 </div>
 </form>
-    </div>
-  @include('layouts.footer')
-  <!-- partial -->
-  </div>
   @endsection

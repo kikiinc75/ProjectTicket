@@ -1,8 +1,6 @@
 @extends('layouts.index')
 @section('content')
 <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
           <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics">
@@ -54,7 +52,7 @@
                     <div class="float-right">
                       <p class="mb-0 text-right">CDAFLDAHFr</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">1409801480912</h3>
+                        <h3 class="font-weight-medium text-right mb-0">12</h3>
                       </div>
                     </div>
                   </div>
@@ -109,15 +107,8 @@
             @endif
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <img src="{{url('images/peswat.png')}}" style="width: 1380px ">
+                <img src="{{url('images/peswat.png')}}" style="width: 1060px ">
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        @include('layouts.footer')
-        <!-- partial -->
-      </div>
 @endsection

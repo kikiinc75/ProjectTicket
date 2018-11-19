@@ -5,9 +5,6 @@
 
 @section('content')
 
-<div class="main-panel">
-    <div class="content-wrapper">
-    
 <form action="{{ route('planes_detail.update', $data->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('put') }}
@@ -56,9 +53,5 @@
 
 </div>
 </form>
-    </div>
-    @include('layouts.footer')
-<!-- partial -->
-</div>
 
 @endsection

@@ -11,9 +11,6 @@ $(document).ready(function() {
 
 @extends('layouts.index')
 @section('content')
-<div class="main-panel">
-  <div class="content-wrapper">
-
 <form action="{{ route('customer.update', $data->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('put') }}
@@ -62,7 +59,7 @@ $(document).ready(function() {
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label for="phone" class="col-md-4 control-label">PHONE</label>
                             <div class="col-md-6">
-                                <input id="phone" type="number" maxlength="4" class="form-control" name="phone" value="{{$data->phone }}" required>
+                                <input id="phone" type="tel" maxlength="4" class="form-control" name="phone" value="{{$data->phone }}" required>
                                 @if ($errors->has('tahun_terbit'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('tahun_terbit') }}</strong>
@@ -93,8 +90,4 @@ $(document).ready(function() {
 
 </div>
 </form>
-    </div>
-  @include('layouts.footer')
-  <!-- partial -->
-  </div>
   @endsection
