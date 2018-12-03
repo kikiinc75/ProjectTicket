@@ -11,10 +11,10 @@
 @extends('layouts.index')
 
 @section('content')
-      <div class="row">
+  		<div class="row">
 
   <div class="col-lg-2">
-    <a href="{{ route('planes_reservation.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Data</a>
+    <a href="{{ route('trains_schedule.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Data</a>
   </div>
     <div class="col-lg-12">
                   @if (Session::has('message'))
@@ -27,41 +27,38 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Jadwal Pesawat</h4>
+                  <h4 class="card-title">Data Jadwal Kereta</h4>
                   
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
                       <thead>
                           <tr>
                             <th>
-                                Waktu Pemesanan
+                              	Nama Kereta
                             </th>
                             <th>
-                                Nama Operator
+                              	Kode Kereta
                             </th>
                             <th>
-                                Nama Pemesan
+                              	Keberangkatan
                             </th>
                             <th>
-                                Nama Pesawat
+                              	Tujuan
                             </th>
                             <th>
-                                Berangkat dari
+                            	Kelas Ekonomi
                             </th>
                             <th>
-                                Tujuan
+                            	Kelas Bisnis
                             </th>
                             <th>
-                                Waktu Keberangkatan
+                            	Kelas Utama
                             </th>
                             <th>
-                                Kursi pilihan
+                            	Waktu Keberangkatan
                             </th>
                             <th>
-                                Price
-                            </th>
-                            <th>
-                                Action
+                            	Action
                             </th>
                           </tr>
                         </thead>
@@ -69,37 +66,28 @@
                       @foreach($datas as $data)
                         <tr>
                           <td class="py-1">
-                            {{$data->created_at}}
+                            {{$data->trains_detail->trains->name}}
                           </td>
                           <td>
-                          {{$data->user->fullname}}
+                          {{$data->trains_detail->code}}
                           </td>
                           <td>
-                            {{$data->customer->name}}
+                            {{$data->from}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->planes_detail->planes->name}}
+                            {{$data->destination}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->from}}
+                            {{$data->eco_seat_pay}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->destination}}
+                            {{$data->bus_seat_pay}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->boardingtime}}
+                            {{$data->first_seat_pay}}
                           </td>
                           <td>
-                            {{$data->planes_class_seat}}
-                          </td>
-                          <td>
-                          @if($data->planes_class_seat == 'Ekonomi')
-                            {{$data->planes_schedule->eco_seat_pay}}
-                          @elseif($data->planes_class_seat == 'Bisnis')
-                            {{$data->planes_schedule->bus_seat_pay}}
-                          @elseif($data->planes_class_seat == 'Utama')
-                            {{$data->planes_schedule->first_seat_pay}}
-                          @endif
+                            {{$data->boardingtime}}
                           </td>
                           <td>
                            <div class="btn-group dropdown">
@@ -107,8 +95,8 @@
                             Action
                           </button>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-                            <a class="dropdown-item" href="{{route('planes_reservation.edit', $data->id)}}"> Edit </a>
-                            <form action="{{ route('planes_reservation.destroy', $data->id) }}" class="pull-left"  method="post">
+                            <a class="dropdown-item" href="{{route('trains_schedule.edit', $data->id)}}"> Edit </a>
+                            <form action="{{ route('trains_schedule.destroy', $data->id) }}" class="pull-left"  method="post">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
                             <button class="dropdown-item" onclick="return confirm('Anda yakin ingin menghapus data ini?')"> Delete

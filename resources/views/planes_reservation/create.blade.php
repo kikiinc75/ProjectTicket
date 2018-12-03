@@ -1,20 +1,19 @@
 @section('js')
  <script type="text/javascript">
             $(document).on('click', '.pilih', function (e) {
-                document.getElementById("planes_name").value = $(this).attr('data-planes_name');
-                document.getElementById("planes_id").value = $(this).attr('data-planes_id');
+                document.getElementById("customer_id").value = $(this).attr('data-customer_id');
+                document.getElementById("customer_name").value = $(this).attr('data-customer_name');
                 $('#myModal').modal('hide');
             });
-
             $(document).on('click', '.pilih_airport', function (e) {
-                document.getElementById("airport_id").value = $(this).attr('data-airport_id');
-                document.getElementById("airport_nama").value = $(this).attr('data-airport_nama');
-                document.getElementById("from").value = $(this).attr('data-from');
-                document.getElementById("destination").value = $(this).attr('data-destination');
-                document.getElementById("boardingtime").value = $(this).attr('data-boardingtime');
+                document.getElementById("schedule_id").value = $(this).attr('data-schedule_id');
+                document.getElementById("planes_name").value = $(this).attr('data-planes_name');
+                document.getElementById("planes_code").value = $(this).attr('data-planes_code');
+                document.getElementById("planes_from").value = $(this).attr('data-planes_from');
+                document.getElementById("planes_destination").value = $(this).attr('data-planes_destination');
                 $('#myModal2').modal('hide');
             });
-             $(function () {
+			$(function () {
                 $("#lookup, #lookup2").dataTable();
             });
         </script>
@@ -27,33 +26,36 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('planes_reservation.store') }}" enctype="multipart/form-data">
-    {{ csrf_field() }}
+<form method="POST" action="{{ route('planes_reservation.store') }}"enctype="multypart/form-data">
+       {{ csrf_field() }}
 <div class="row">
-            <div class="col-md-12 d-flex align-items-stretch grid-margin">
-              <div class="row flex-grow">
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Tambah Jadwal baru</h4>
-                      <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
-                            <label for="fullname" class="col-md-4 control-label">Nama Operator</label>
+            <div class="col-md-12 d-flex align-items-stertch grid-margin">
+            	<div class="row flex-grow">
+            		<div class="col-12">
+            		   <div class="card">
+            		      <div class="card-body">
+            		      	 <h4 class="card-title">Tambah transaksi baru</h4>
+            		      	 
+            		      	 <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
+                            <label for="user_id" class="col-md-4 control-label">Nama User</label>
                             <div class="col-md-6">
-                                <input id="fullname" type="text" class="form-control" readonly="" value="{{ Auth::user()->fullname }}" required>
-                                <input type="hidden" name="user_id" readonly="" value="{{Auth::user()->id}}" required="">
+                                <div class="input-group">
+                                <input id="user_name" type="text" class="form-control" readonly="" value="{{Auth::user()->fullname}}" required>
+                                <input id="user_id" type="hidden" name="user_id" value="{{ Auth::user()->id }}" required readonly="">
+                                </div>
                                 @if ($errors->has('user_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('user_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('customer_id') ? ' has-error' : '' }}">
-                            <label for="planes_detail_id" class="col-md-4 control-label">Nama Customer</label>
+                        	</div>
+                        	<div class="form-group{{ $errors->has('customer_id') ? ' has-error' : '' }}">
+                            <label for="customer_id" class="col-md-4 control-label">Nama Pesawat</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <input id="planes_name" type="text" class="form-control" readonly="" required>
-                                <input id="planes_id" type="hidden" name="customer_id" value="{{ old('customer_id') }}" required readonly="">
+                                <input id="customer_name" type="text" class="form-control" readonly="" required>
+                                <input id="customer_id" type="hidden" name="customer_id" value="{{ old('customer_id') }}" required >
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal"><b>Cari Customer</b> <span class="fa fa-search"></span></button>
                                 </span>
@@ -65,28 +67,27 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('airport_id') ? ' has-error' : '' }}">
-                            <label for="airport_id" class="col-md-4 control-label">Nama Pesawat</label>
+                        <div class="form-group{{ $errors->has('planes_schedule_id') ? ' has-error' : '' }}">
+                            <label for="planes_schedule_id"class="col-md-4 control-label">Cari Jadwal</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <input id="airport_nama" type="text" class="form-control" readonly="" required>
-                                <input id="airport_id" type="hidden" name="schedule_id" value="{{ old('schedule_id') }}" required readonly="">
+                                <input id="planes_name" type="text" class="form-control" readonly="" required>
+                                <input id="schedule_id" type="hidden" name="planes_schedule_id" value="{{ old('planes_schedule_id') }}" required >
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-warning btn-secondary" data-toggle="modal" data-target="#myModal2"><b>Cari Jadwal</b> <span class="fa fa-search"></span></button>
+                                    <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal2"><b>Cari Jadwal</b> <span class="fa fa-search"></span></button>
                                 </span>
                                 </div>
-                                @if ($errors->has('schedule_id'))
+                                @if ($errors->has('planes_schedule_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('schedule_id') }}</strong>
+                                        <strong>{{ $errors->first('planes_schedule_id') }}</strong>
                                     </span>
                                 @endif
-                                 
-                            </div>
+                        	</div>
                         </div>
-                        <div class="form-group">
-                            <label for="planes_code" class="col-md-4 control-label">Berangkat Dari</label>
+                        <div class="form-group{{ $errors->has('planes_code') ? ' has-error' : '' }}">
+                            <label for="planes_code" class="col-md-4 control-label">Kode Pesawat</label>
                             <div class="col-md-6">
-                                <input id="from" type="text" class="form-control" readonly="" value="" required>
+                                <input id="planes_code" type="text" class="form-control" readonly="" value="{{old('planes_code')}}" required>
                               
                                 @if ($errors->has('planes_code'))
                                     <span class="help-block">
@@ -97,9 +98,9 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('planes_code') ? ' has-error' : '' }}">
-                            <label for="planes_code" class="col-md-4 control-label">Tujuan Ke</label>
+                            <label for="planes_code" class="col-md-4 control-label">Kode Pesawat</label>
                             <div class="col-md-6">
-                                <input id="destination" type="text" class="form-control" readonly="" value="" required>
+                                <input id="planes_from" type="text" class="form-control" readonly="" value="{{old('planes_code')}}" required>
                               
                                 @if ($errors->has('planes_code'))
                                     <span class="help-block">
@@ -110,9 +111,9 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('planes_code') ? ' has-error' : '' }}">
-                            <label for="boardingtime" class="col-md-4 control-label">Waktu Keberangkatan</label>
+                            <label for="planes_code" class="col-md-4 control-label">Kode Pesawat</label>
                             <div class="col-md-6">
-                                <input id="boardingtime" type="text" class="form-control" readonly="" value="" required>
+                                <input id="planes_destination" type="text" class="form-control" readonly="" value="{{old('planes_code')}}" required>
                               
                                 @if ($errors->has('planes_code'))
                                     <span class="help-block">
@@ -122,40 +123,33 @@
                                  
                             </div>
                         </div>
-                           <div class="form-group{{ $errors->has('class_seat') ? ' has-error' : '' }}">
-                            <label for="level" class="col-md-4 control-label">Pilihan Kursi
-                            </label>
-
-                            <div class="col-md-6">
-                                <select id="level" class="form-control" name="class_seat" value="{{ old('class_seat') }}" required>
-                                  <option value="eco">Kursi Ekonomi</option>
-                                  <option value="bus">Kursi Bisnis</option>
-                                  <option value="first">Kursi Utama</option>
+                        <div class="col-md-6">
+                                <select id="level" class="form-control" name="planes_class_seat" value="{{ old('level') }}" required>
+                                  <option value="Ekonomi">Ekonomi</option>
+                                  <option value="Bisnis">Bisnis</option>
+                                  <option value="Utama">Utama</option>
                                 </select>
-                                @if ($errors->has('class_seat'))
+                                @if ($errors->has('level'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('class_seat') }}</strong>
+                                        <strong>{{ $errors->first('level') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submit">
+                              <button type="submit" class="btn btn-primary" id="submit">
                                     Submit
                         </button>
                         <button type="reset" class="btn btn-danger">
                                     Reset
                         </button>
-                        <a href="{{route('planes_reservation.index')}}" class="btn btn-light pull-right">Back</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                        <a href="{{route('planes_schedule.index')}}" class="btn btn-light pull-right">Back</a>
+            		      </div>
+            		   </div>
+            		</div>
+            	</div>
             </div>
-        </div>
+</div>
 </form>
-
-
-  <!-- Modal -->
+<!-- Modal -->
         <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg" role="document" >
     <div class="modal-content" style="background: #fff;">
@@ -170,15 +164,15 @@
                             <thead>
                                 <tr>
                                     <th>NIK</th>
-                                    <th>Nama</th>
-                                    <th>Alamat</th>
-                                    <th>Telephone</th>
-                                    <th>Jenis Kelamin</th>
+                                    <th>NAME</th>
+                                    <th>ADDRESS</th>
+                                    <th>PHONE</th>
+                                    <th>GENDER</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($customer as $data)
-                                <tr class="pilih" data-planes_id="<?php echo $data->id; ?>" data-planes_name="<?php echo $data->name; ?>">
+                                <tr class="pilih" data-customer_id="<?php echo $data->id; ?>" data-customer_name="<?php echo $data->name; ?>">
                                     <td>{{$data->nik}}</td>
                                     <td>{{$data->name}}</td>
                                     <td>{{$data->address}}</td>
@@ -192,9 +186,7 @@
                 </div>
             </div>
         </div>
-
-
-  <!-- Modal -->
+<!-- Modal -->
         <div class="modal fade bd-example-modal-lg" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg" role="document" >
     <div class="modal-content" style="background: #fff;">
@@ -209,39 +201,40 @@
                             <thead>
                         <tr>
                           <th>
-                            Nama Pesawat
-                          </th>
-                          <th>
-                            Kode Pesawat
-                          </th>
-                          <th>
-                            Keberangkatan
-                          </th>
-                          <th>
-                                Tujuan
+                              	Nama Pesawat
                             </th>
                             <th>
-                              Kelas Ekonomi
+                              	Kode Pesawat
                             </th>
                             <th>
-                              Kelas Bisnis
+                              	Keberangkatan
                             </th>
                             <th>
-                              Kelas Utama
+                              	Tujuan
                             </th>
                             <th>
-                              Waktu Keberangkatan
+                            	Kelas Ekonomi
+                            </th>
+                            <th>
+                            	Kelas Bisnis
+                            </th>
+                            <th>
+                            	Kelas Utama
+                            </th>
+                            <th>
+                            	Waktu Keberangkatan
                             </th>
                         </tr>
                       </thead>
                             <tbody>
                                 @foreach($planes_schedule as $data)
-                                <tr class="pilih_airport" data-airport_id="<?php echo $data->id; ?>" data-airport_nama="<?php echo $data->planes_detail->planes->name; ?>" data-from="<?php echo $data->from;?>" data-destination="<?php echo $data->destination;?>" data-boardingtime="<?php echo $data->boardingtime?>" >
+                                <tr class="pilih_airport" data-schedule_id="<?php echo $data->id; ?>" data-planes_name="<?php echo $data->planes_detail->planes->name; ?>" data-planes_code="<?php echo $data->planes_detail->code;?>" data-planes_from="<?php echo $data->from;?>"data-planes_destination="<?php echo $data->destination;?>">
                                     <td class="py-1">
+
                             {{$data->planes_detail->planes->name}}
                           </td>
                           <td>
-                          {{$data->planes_detail->code}}
+                            {{$data->planes_detail->code}}
                           </td>
                           <td>
                             {{$data->from}}
@@ -250,28 +243,17 @@
                             {{$data->destination}}
                           </td>
                           <td>
-                            @if($data->eco_seat_pay>0)
-                            IDR {{$data->eco_seat_pay}}
-                            @else
                             {{$data->eco_seat_pay}}
-                            @endif
                           </td>
                           <td>
-                            @if($data->bus_seat_pay>0)
-                            IDR {{$data->bus_seat_pay}}
-                            @else
                             {{$data->bus_seat_pay}}
-                            @endif
                           </td>
                           <td>
-                            @if($data->first_seat_pay>0)
-                            IDR {{$data->first_seat_pay}}
-                            @else
                             {{$data->first_seat_pay}}
-                            @endif
                           </td>
                           <td>
                             {{$data->boardingtime}}
+                          </td>
                         </tr>
                                 @endforeach
                             </tbody>
@@ -280,4 +262,5 @@
                 </div>
             </div>
         </div>
+
 @endsection

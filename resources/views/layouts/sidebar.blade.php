@@ -41,7 +41,7 @@
                   <a class="nav-link" href="{{route('planes_reservation.index')}}">Planes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{route('user.index')}}">Trains</a>
+                  <a class="nav-link " href="{{route('trains_reservation.index')}}">Trains</a>
                 </li>
               </ul>
             </div>
@@ -115,7 +115,7 @@
                   <a class="nav-link " href="{{route('planes_schedule.index')}}">Pesawat</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#">Kereta Api</a>
+                  <a class="nav-link " href="{{route('trains_schedule.index')}}">Kereta Api</a>
                 </li>
               </ul>
             </div>

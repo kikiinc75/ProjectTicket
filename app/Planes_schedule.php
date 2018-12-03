@@ -15,6 +15,6 @@ class Planes_schedule extends Model
     	return $this->belongsTo(Airport::class);
     }
     public function planes_reservation(){
-    	return $this->hasMany(Trains_reservation::class);
+    	return $this->hasMany(Planes_reservation::class);
     }
 }

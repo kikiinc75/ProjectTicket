@@ -138,6 +138,5 @@ var check = function() {
 </div>
 </form>
 </div>
-  @include('layouts.footer')
 </div>
 @endsection

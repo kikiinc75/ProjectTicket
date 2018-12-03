@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Trains_reservation extends Model
 {
     protected $table = 'trains_reservation';
-    protected $fillable = ['schedule_id','user_id','customer_id','class_seat', 'price'];
+    protected $fillable = ['trains_schedule_id','user_id','customer_id','trains_class_seat'];
     public function user(){
     	return $this->belongsTo(User::class);
     }

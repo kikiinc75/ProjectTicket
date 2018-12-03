@@ -17,8 +17,8 @@ class CreateTrainsScheduleTable extends Migration
             $table->increments('id');
             $table->integer('station_id')->unsigned();
             $table->foreign('station_id')->references('id')->on('station')->onDelete('cascade');
-            $table->integer('trains_id')->unsigned();
-            $table->foreign('trains_id')->references('id')->on('trains_detail')->onDelete('cascade');
+            $table->integer('trains_detail_id')->unsigned();
+            $table->foreign('trains_detail_id')->references('id')->on('trains_detail')->onDelete('cascade');
             $table->string('from');
             $table->string('destination');
             $table->double('eco_seat_pay',30)->nullable();
@@ -36,6 +36,7 @@ class CreateTrainsScheduleTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('trains_schedule');
     }
 }

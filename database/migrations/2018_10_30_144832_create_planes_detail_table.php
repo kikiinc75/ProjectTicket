@@ -29,6 +29,7 @@ class CreatePlanesDetailTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('planes_detail');
     }
 }

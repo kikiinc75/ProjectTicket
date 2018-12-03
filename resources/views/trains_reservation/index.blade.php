@@ -14,7 +14,7 @@
       <div class="row">
 
   <div class="col-lg-2">
-    <a href="{{ route('planes_reservation.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Data</a>
+    <a href="{{ route('trains_reservation.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Data</a>
   </div>
     <div class="col-lg-12">
                   @if (Session::has('message'))
@@ -27,7 +27,7 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Jadwal Pesawat</h4>
+                  <h4 class="card-title">Data Jadwal Kereta</h4>
                   
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
@@ -43,7 +43,7 @@
                                 Nama Pemesan
                             </th>
                             <th>
-                                Nama Pesawat
+                                Nama Kereta
                             </th>
                             <th>
                                 Berangkat dari
@@ -78,28 +78,22 @@
                             {{$data->customer->name}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->planes_detail->planes->name}}
+                            {{$data->trains_detail_id->trains->name}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->from}}
+                            {{$data->trains_schedule->from}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->destination}}
+                            {{$data->trains_schedule->destination}}
                           </td>
                           <td>
-                            {{$data->planes_schedule->boardingtime}}
+                            {{$data->class_seat}}
                           </td>
                           <td>
-                            {{$data->planes_class_seat}}
+                            {{$data->price}}
                           </td>
                           <td>
-                          @if($data->planes_class_seat == 'Ekonomi')
-                            {{$data->planes_schedule->eco_seat_pay}}
-                          @elseif($data->planes_class_seat == 'Bisnis')
-                            {{$data->planes_schedule->bus_seat_pay}}
-                          @elseif($data->planes_class_seat == 'Utama')
-                            {{$data->planes_schedule->first_seat_pay}}
-                          @endif
+                            
                           </td>
                           <td>
                            <div class="btn-group dropdown">
@@ -107,8 +101,8 @@
                             Action
                           </button>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-                            <a class="dropdown-item" href="{{route('planes_reservation.edit', $data->id)}}"> Edit </a>
-                            <form action="{{ route('planes_reservation.destroy', $data->id) }}" class="pull-left"  method="post">
+                            <a class="dropdown-item" href="{{route('trains_reservation.edit', $data->id)}}"> Edit </a>
+                            <form action="{{ route('trains_reservation.destroy', $data->id) }}" class="pull-left"  method="post">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
                             <button class="dropdown-item" onclick="return confirm('Anda yakin ingin menghapus data ini?')"> Delete

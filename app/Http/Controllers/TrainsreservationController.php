@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Planes_reservation;
-use App\Planes_schedule;
-use App\Planes_detail;
-use App\Airport;
+use App\Trains_reservation;
+use App\Trains_schedule;
+use App\Trains_detail;
+use App\Station;
 use App\User;
 use App\Customer;
-use App\Planes;
+use App\Trains;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Alert;
 use DB;
-class PlanesreservationController extends Controller
+class TrainsreservationController extends Controller
 {
     ////
     /**
@@ -31,8 +31,8 @@ class PlanesreservationController extends Controller
     }
     public function index()
     {
-        $datas = Planes_reservation::get();
-        return view('planes_reservation.index', compact('datas'));
+        $datas = Trains_reservation::get();
+        return view('trains_reservation.index', compact('datas'));
     }
     /**
      * Show the form for creating a new resource.
@@ -51,7 +51,7 @@ class PlanesreservationController extends Controller
         $planes_detail=Planes_detail::get();
         $planes_reservation=Planes_reservation::get();
         $customer=Customer::get();
-        return view('planes_reservation.create', compact('users','planes','airport','planes_detail','planes_schedule','planes_reservation','customer'));
+        return view('trains_reservation.create', compact('users','trains','station','trains_detail','trains_schedule','trains_reservation','customer'));
     }
 
     /**
@@ -62,22 +62,29 @@ class PlanesreservationController extends Controller
      */
     public function store(Request $request)
     {
-        $count = Planes_reservation::where('id',$request->input('id'))->count();
-
         $this->validate($request, [
-            'planes_class_seat' => 'required',
-            'user_id'=>'required',
-            'customer_id'=>'required',
-            'planes_schedule_id' => 'required',
-            
+            'schedule_id' => 'required',
+            'user_id' => 'required',
+            'customer_id' => 'required',
+            'class_seat' => 'required',
+            'price' => 'required',
+
         ]);
-        $planes_reservation = Planes_reservation::create($request->all());
+
+        $reservasi = Trains_reservation::create([
+                'schedule_id' => $request->get('schedule_id'),
+                'user_id' => $request->get('user_id'),
+                'customer_id' => $request->get('customer_id'),
+                'class_seat' => $request->get('class_seat'),
+                'status' => '10000'
+            ]);
+
         alert()->success('Berhasil.','Data telah ditambahkan!');
-        return redirect()->route('planes_reservation.index');
+        return redirect()->route('trains_reservation.index');
 
     }
 
-    /** 
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -85,9 +92,9 @@ class PlanesreservationController extends Controller
      */
         public function edit($id)
     {   
-        $data = Planes_reservation::findOrFail($id);
+        $data = Trains_reservation::findOrFail($id);
         $users = User::get();
-        return view('planes_reservation.edit', compact('data', 'users'));
+        return view('trains_reservation.edit', compact('data', 'users'));
     }
 
     /**
@@ -99,10 +106,10 @@ class PlanesreservationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Planes_reservation::find($id)->update($request->all());
+        Trains_reservation::find($id)->update($request->all());
 
         alert()->success('Berhasil.','Data telah diubah!');
-        return redirect()->to('planes_reservation');
+        return redirect()->to('trains_reservation');
     }
 
     /**
@@ -113,8 +120,8 @@ class PlanesreservationController extends Controller
      */
     public function destroy($id)
     {
-        Planes_reservation::find($id)->delete();
+        Trains_reservation::find($id)->delete();
         alert()->success('Berhasil.','Data telah dihapus!');
-        return redirect()->route('planes_reservation.index');
+        return redirect()->route('trains_reservation.index');
     }
 }

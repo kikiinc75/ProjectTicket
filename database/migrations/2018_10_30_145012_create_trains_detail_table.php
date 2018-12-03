@@ -29,6 +29,7 @@ class CreateTrainsDetailTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('trains_detail');
     }
 }
