@@ -46,10 +46,10 @@ var check = function() {
                     <div class="col-12">
                       <div class="card">
                         <div class="card-body">
-                          <h4 class="card-title">Tambah Data Station</h4>
+                          <h4 class="card-title">Tambah Data Stasiun</h4>
 
                              <div class="form-group{{ $errors->has('code') ? ' has-error' : '' }}">
-                                <label for="code" class="col-md-4 control-label">CODE</label>
+                                <label for="code" class="col-md-4 control-label">Kode Stasiun</label>
                                 <div class="col-md-6">
                                     <input id="code" type="text" class="form-control" name="code" value="">
                                     @if ($errors->has('code'))
@@ -60,7 +60,7 @@ var check = function() {
                                 </div>
                             </div>
                              <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-                                <label for="city" class="col-md-4 control-label">CITY</label>
+                                <label for="city" class="col-md-4 control-label">Kota</label>
                                 <div class="col-md-6">
                                     <input id="city" type="text"  class="form-control" name="city" value="">
                                     @if ($errors->has('city'))
@@ -72,7 +72,7 @@ var check = function() {
                             </div>
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                               <label for="name" class="col-md-4 control-label">NAMA STATION </label>
+                               <label for="name" class="col-md-4 control-label">Nama Stasiun</label>
                                <div class="col-md-6">
                                    <input id="name" type="text"  class="form-control" name="name" value="" required="">
                                    @if ($errors->has('name'))

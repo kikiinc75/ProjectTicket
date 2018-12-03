@@ -12,10 +12,13 @@
 
 @section('content')
   		<div class="row">
-
+        @if(Auth::user()->level=='ADMIN')
   <div class="col-lg-2">
     <a href="{{ route('trains_schedule.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Data</a>
   </div>
+  @else
+
+  @endif
     <div class="col-lg-12">
                   @if (Session::has('message'))
                   <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
@@ -52,14 +55,17 @@
                             	Kelas Bisnis
                             </th>
                             <th>
-                            	Kelas Utama
+                            	Kelas Executive
                             </th>
                             <th>
                             	Waktu Keberangkatan
                             </th>
+                            @if(Auth::user()->level=='ADMIN')
                             <th>
-                            	Action
+                              Action
                             </th>
+                            @else
+                            @endif
                           </tr>
                         </thead>
                       <tbody>
@@ -84,11 +90,12 @@
                             {{$data->bus_seat_pay}}
                           </td>
                           <td>
-                            {{$data->first_seat_pay}}
+                            {{$data->exec_seat_pay}}
                           </td>
                           <td>
                             {{$data->boardingtime}}
                           </td>
+                          @if(Auth::user()->level=='ADMIN')
                           <td>
                            <div class="btn-group dropdown">
                           <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -106,6 +113,8 @@
                           </div>
                         </div>
                           </td>
+                            @else
+                            @endif
                         </tr>
                       @endforeach
                       </tbody>

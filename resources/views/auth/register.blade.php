@@ -102,7 +102,7 @@ var check = function() {
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="fullname" class="col-md-4 col-form-label text-md-right">{{ __('Fullname') }}</label>
+                            <label for="fullname" class="col-md-4 col-form-label text-md-right">{{ __('Nama Lengkap') }}</label>
 
                             <div class="col-md-6">
                                 <input id="fullname" type="text" class="form-control{{ $errors->has('fullname') ? ' is-invalid' : '' }}" name="fullname" value="{{ old('fullname') }}" required autofocus>

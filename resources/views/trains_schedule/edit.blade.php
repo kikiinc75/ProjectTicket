@@ -89,13 +89,13 @@
                                    @endif
                                </div>
                            </div>
-                           <div class="form-group{{ $errors->has('first_seat_pay') ? ' has-error' : '' }}">
-                               <label for="first_seat_pay" class="col-md-4 control-label">Kursi Utama</label>
+                           <div class="form-group{{ $errors->has('exec_seat_pay') ? ' has-error' : '' }}">
+                               <label for="exec_seat_pay" class="col-md-4 control-label">Kursi Executive</label>
                                <div class="col-md-6">
-                                   <input id="first_seat_pay" type="number" class="form-control" name="first_seat_pay" value="{{$data->eco_seat_pay}}">
-                                   @if ($errors->has('first_seat_pay'))
+                                   <input id="exec_seat_pay" type="number" class="form-control" name="exec_seat_pay" value="{{$data->eco_seat_pay}}">
+                                   @if ($errors->has('exec_seat_pay'))
                                        <span class="help-block">
-                                           <strong>{{ $errors->first('first_seat_pay') }}</strong>
+                                           <strong>{{ $errors->first('exec_seat_pay') }}</strong>
                                        </span>
                                    @endif
                                </div>

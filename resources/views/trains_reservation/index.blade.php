@@ -78,7 +78,7 @@
                             {{$data->customer->name}}
                           </td>
                           <td>
-                            {{$data->trains_detail_id->trains->name}}
+                            {{$data->trains_schedule->trains_detail->trains->name}}
                           </td>
                           <td>
                             {{$data->trains_schedule->from}}
@@ -87,13 +87,19 @@
                             {{$data->trains_schedule->destination}}
                           </td>
                           <td>
-                            {{$data->class_seat}}
+                            {{$data->trains_schedule->boardingtime}}
                           </td>
                           <td>
-                            {{$data->price}}
+                            {{$data->trains_class_seat}}
                           </td>
                           <td>
-                            
+                          @if($data->trains_class_seat == 'Ekonomi')
+                            {{$data->trains_schedule->eco_seat_pay}}
+                          @elseif($data->trains_class_seat == 'Bisnis')
+                            {{$data->trains_schedule->bus_seat_pay}}
+                          @elseif($data->trains_class_seat == 'Executive')
+                            {{$data->trains_schedule->exec_seat_pay}}
+                          @endif
                           </td>
                           <td>
                            <div class="btn-group dropdown">

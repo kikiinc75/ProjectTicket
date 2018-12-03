@@ -34,16 +34,16 @@
                       <thead>
                           <tr>
                             <th>
-                              NAMA KERETA
+                              Nama Kereta
                             </th>
                             <th>
-                              ECO SEAT 
+                              Jumlah Kursi Ekonomi
                             </th>
                             <th>
-                              BUS SEAT
+                              Jumlah Kursi Bisnis
                             </th>
                             <th>
-                              EXEC SEAT
+                              Jumlah Kursi Executive
                             </th>
                             <th>
                             Action

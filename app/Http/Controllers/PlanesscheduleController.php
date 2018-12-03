@@ -80,6 +80,10 @@ class PlanesscheduleController extends Controller
      */
         public function edit($id)
     {   
+        if(Auth::user()->level == 'OPERATOR') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
         $data = Planes_schedule::findOrFail($id);
         $users = User::get();
         return view('planes_schedule.edit', compact('data', 'users'));

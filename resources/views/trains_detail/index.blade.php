@@ -38,7 +38,7 @@
                               Nama Kereta
                             </th>
                             <th>
-                              Code
+                              Kode Kereta
                             </th>
                             <th>
                               Created At

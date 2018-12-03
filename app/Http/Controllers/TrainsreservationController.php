@@ -41,15 +41,11 @@ class TrainsreservationController extends Controller
      */
       public function create()
     {
-        if(Auth::user()->level == 'OPERATOR') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
-        $planes_schedule=Planes_schedule::get();
-        $airport= Airport::get();
-        $planes = Planes::get();
-        $planes_detail=Planes_detail::get();
-        $planes_reservation=Planes_reservation::get();
+        $trains_schedule=Trains_schedule::get();
+        $station= Station::get();
+        $trains = Trains::get();
+        $trains_detail=Trains_detail::get();
+        $trains_reservation=Trains_reservation::get();
         $customer=Customer::get();
         return view('trains_reservation.create', compact('users','trains','station','trains_detail','trains_schedule','trains_reservation','customer'));
     }
@@ -62,23 +58,16 @@ class TrainsreservationController extends Controller
      */
     public function store(Request $request)
     {
+        $count = Trains_reservation::where('id',$request->input('id'))->count();
+
         $this->validate($request, [
-            'schedule_id' => 'required',
-            'user_id' => 'required',
-            'customer_id' => 'required',
-            'class_seat' => 'required',
-            'price' => 'required',
-
+            'trains_class_seat' => 'required',
+            'user_id'=>'required',
+            'customer_id'=>'required',
+            'trains_schedule_id' => 'required',
+            
         ]);
-
-        $reservasi = Trains_reservation::create([
-                'schedule_id' => $request->get('schedule_id'),
-                'user_id' => $request->get('user_id'),
-                'customer_id' => $request->get('customer_id'),
-                'class_seat' => $request->get('class_seat'),
-                'status' => '10000'
-            ]);
-
+        $trains_reservation = Trains_reservation::create($request->all());
         alert()->success('Berhasil.','Data telah ditambahkan!');
         return redirect()->route('trains_reservation.index');
 

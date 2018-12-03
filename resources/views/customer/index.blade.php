@@ -37,16 +37,16 @@
                               NIK
                             </th>
                             <th>
-                              NAME
+                              Nama
                             </th>
                             <th>
-                              ADDRESS
+                              Alamat
                             </th>
                             <th>
-                              PHONE
+                              No Telephone
                             </th>
                             <th>
-                              GENDER
+                              Jenis Kelamin
                             </th>
                             <th>
                             Action
@@ -60,9 +60,7 @@
                             {{$data->nik}}
                           </td>
                           <td>
-                          <a href="{{route('customer.show', $data->id)}}"> 
                           {{$data->name}}
-                          </a>
                           </td>
                           <td>
                             {{$data->address}}

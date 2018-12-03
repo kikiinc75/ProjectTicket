@@ -27,20 +27,20 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Airport</h4>
+                  <h4 class="card-title">Data Bandara</h4>
                   
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
                       <thead>
                           <tr>
                             <th>
-                              CODE 
+                              Kode Bandara
                             </th>
                             <th>
-                              CITY 
+                              Kota
                             </th>
                             <th>
-                              NAMA AIRPORT
+                              Nama Bandara
                             </th>
                             <th>
                             Action
@@ -54,9 +54,7 @@
                             {{$data->code}}
                           </td>
                           <td>
-                          <a href="{{route('airport.show', $data->id)}}"> 
-                          {{$data->city}}
-                          </a>
+                            {{$data->city}}
                           </td>
                           <td>
                             {{$data->name}}

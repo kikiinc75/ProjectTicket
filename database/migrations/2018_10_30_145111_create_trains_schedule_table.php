@@ -23,7 +23,7 @@ class CreateTrainsScheduleTable extends Migration
             $table->string('destination');
             $table->double('eco_seat_pay',30)->nullable();
             $table->double('bus_seat_pay',30)->nullable();
-            $table->double('first_seat_pay',30)->nullable();
+            $table->double('exec_seat_pay',30)->nullable();
             $table->datetime('boardingtime');
             $table->timestamps();
         });

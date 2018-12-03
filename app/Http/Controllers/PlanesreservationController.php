@@ -41,10 +41,6 @@ class PlanesreservationController extends Controller
      */
       public function create()
     {
-        if(Auth::user()->level == 'OPERATOR') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
         $planes_schedule=Planes_schedule::get();
         $airport= Airport::get();
         $planes = Planes::get();

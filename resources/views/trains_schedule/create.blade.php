@@ -107,7 +107,7 @@
                         <div class="form-group{{ $errors->has('eco_seat_pay') ? ' has-error' : '' }}">
                                 <label for="eco_seat_pay" class="col-md-4 control-label">Kursi Ekonomi</label>
                                 <div class="col-md-6">
-                                    <input id="eco_seat_pay" type="number"  class="form-control uang" name="eco_seat_pay" value="">
+                                    <input id="eco_seat_pay" type="number"  class="form-control uang" name="eco_seat_pay" value="" placeholder="IDR">
                                     @if ($errors->has('eco_seat_pay'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('eco_seat_pay') }}</strong>
@@ -119,7 +119,7 @@
                             <div class="form-group{{ $errors->has('bus_seat_pay') ? ' has-error' : '' }}">
                                <label for="bus_seat_pay" class="col-md-4 control-label">Kursi Bisnis </label>
                                <div class="col-md-6">
-                                   <input id="bus_seat_pay" type="number"  class="form-control" name="bus_seat_pay" value="">
+                                   <input id="bus_seat_pay" type="number"  class="form-control" name="bus_seat_pay" value="" placeholder="IDR">
                                    @if ($errors->has('bus_seat_pay'))
                                        <span class="help-block">
                                            <strong>{{ $errors->first('bus_seat_pay') }}</strong>
@@ -127,13 +127,13 @@
                                    @endif
                                </div>
                            </div>
-                           <div class="form-group{{ $errors->has('first_seat_pay') ? ' has-error' : '' }}">
-                               <label for="first_seat_pay" class="col-md-4 control-label">Kursi Utama</label>
+                           <div class="form-group{{ $errors->has('exec_seat_pay') ? ' has-error' : '' }}">
+                               <label for="exec_seat_pay" class="col-md-4 control-label">Kursi Executive</label>
                                <div class="col-md-6">
-                                   <input id="first_seat_pay" type="number" class="form-control" name="first_seat_pay" value="" placeholder="IDR">
-                                   @if ($errors->has('first_seat_pay'))
+                                   <input id="exec_seat_pay" type="number" class="form-control" name="exec_seat_pay" value="" placeholder="IDR">
+                                   @if ($errors->has('exec_seat_pay'))
                                        <span class="help-block">
-                                           <strong>{{ $errors->first('first_seat_pay') }}</strong>
+                                           <strong>{{ $errors->first('exec_seat_pay') }}</strong>
                                        </span>
                                    @endif
                                </div>

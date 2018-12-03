@@ -27,6 +27,10 @@ class PlanesdetailController extends Controller
     }
     public function index()
     {
+        if(Auth::user()->level == 'OPERATOR') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
         $datas = Planes_detail::get();
         return view('planes_detail.index', compact('datas'));
     }

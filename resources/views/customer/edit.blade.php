@@ -20,7 +20,7 @@ $(document).ready(function() {
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">EDIT CUSTOMER <b></b> </h4>
+                      <h4 class="card-title">Edit Customer <b></b> </h4>
                       <form class="forms-sample">
                 
                         <div class="form-group{{ $errors->has('nik') ? ' has-error' : '' }}">
@@ -35,10 +35,10 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">NAME</label>
+                            <label for="name" class="col-md-4 control-label">Nama Customer</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{$data->name }}" required>
-                                @if ($errors->has('pengarang'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -46,30 +46,30 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address" class="col-md-4 control-label">ADDRESS</label>
+                            <label for="address" class="col-md-4 control-label">Alamat</label>
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control" name="address" value="{{$data->address }}" required>
-                                @if ($errors->has('penerbit'))
+                                @if ($errors->has('address'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('penerbit') }}</strong>
+                                        <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">PHONE</label>
+                            <label for="phone" class="col-md-4 control-label">No Telephone</label>
                             <div class="col-md-6">
                                 <input id="phone" type="tel" maxlength="4" class="form-control" name="phone" value="{{$data->phone }}" required>
-                                @if ($errors->has('tahun_terbit'))
+                                @if ($errors->has('phone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tahun_terbit') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
                        
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                            <label for="gender" class="col-md-4 control-label">GENDER</label>
+                            <label for="gender" class="col-md-4 control-label">Jenis Kelamis</label>
                             <div class="col-md-6">
                             <select class="form-control" name="gender" required="">
                                 <option value="laki-laki" @if($data->gender == 'laki-laki') selected @endif>LAKI-LAKI</option>

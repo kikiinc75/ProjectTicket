@@ -85,10 +85,10 @@
                         <table id="lookup" class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th>NAMA PESAWAT</th>
-                                    <th>ECONOMY SEAT</th>
-                                    <th>BUSSINESS SEAT</th>
-                                    <th>FIRST CLASS SEAT</th>
+                                    <th>Nama Pesawat</th>
+                                    <th>Jumlah Kursi Ekonomi</th>
+                                    <th>Jumlah Kursi Bisnis</th>
+                                    <th>Jumlah Kursi Utama</th>
                                 </tr>
                             </thead>
                             <tbody>

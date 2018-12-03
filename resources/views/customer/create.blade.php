@@ -71,7 +71,7 @@ var check = function() {
                             </div>
 
                             <div class="form-group{{ $errors->has('code') ? ' has-error' : '' }}">
-                               <label for="code" class="col-md-4 control-label">Address </label>
+                               <label for="code" class="col-md-4 control-label">Alamat </label>
                                <div class="col-md-6">
                                    <input id="address" type="text"  class="form-control" name="address" value="" required="">
                                    @if ($errors->has('address'))
@@ -82,7 +82,7 @@ var check = function() {
                                </div>
                            </div>
                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                               <label for="deskripsi" class="col-md-4 control-label">Phone</label>
+                               <label for="deskripsi" class="col-md-4 control-label">No Telephone</label>
                                <div class="col-md-6">
                                    <input id="phone" type="tel" class="form-control" name="phone" value="">
                                    @if ($errors->has('phone'))
@@ -93,7 +93,7 @@ var check = function() {
                                </div>
                            </div>
                            <div class="form-group{{ $errors->has('kursi') ? ' has-error' : '' }}">
-                               <label for="gender" class="col-md-4 control-label">Gender</label>
+                               <label for="gender" class="col-md-4 control-label">Jenis Kelamin</label>
                             <div class="col-md-6">
                                 <select id="gender" class="form-control" name="gender" value="{{ old('gender') }}" required>
                                   <option value="laki-laki">LAKI-LAKI</option>

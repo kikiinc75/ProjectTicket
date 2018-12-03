@@ -39,10 +39,6 @@ class CustomerController extends Controller
      */
       public function create()
     {
-        if(Auth::user()->level == 'OPERATOR') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
         return view('customer.create', compact('users'));
     }
 

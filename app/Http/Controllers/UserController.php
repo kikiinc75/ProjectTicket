@@ -23,11 +23,6 @@ class UserController extends Controller
 
     public function index()
     {
-        if(Auth::user()->level == 'OPERATOR') {
-            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
-            return redirect()->to('/');
-        }
-
         $datas = User::get();
         return view('auth.user', compact('datas'));
     }

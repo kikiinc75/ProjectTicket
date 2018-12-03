@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('planes_code') ? ' has-error' : '' }}">
-                            <label for="planes_code" class="col-md-4 control-label">Kode Pesawat</label>
+                            <label for="planes_code" class="col-md-4 control-label">Keberangkatan dari</label>
                             <div class="col-md-6">
                                 <input id="planes_from" type="text" class="form-control" readonly="" value="{{old('planes_code')}}" required>
                               
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('planes_code') ? ' has-error' : '' }}">
-                            <label for="planes_code" class="col-md-4 control-label">Kode Pesawat</label>
+                            <label for="planes_code" class="col-md-4 control-label">Destinasi Tujuan</label>
                             <div class="col-md-6">
                                 <input id="planes_destination" type="text" class="form-control" readonly="" value="{{old('planes_code')}}" required>
                               
@@ -123,6 +123,8 @@
                                  
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('level') ? ' has-error' : '' }}">
+                               <label for="gender" class="col-md-4 control-label">Kursi Pilihan</label>
                         <div class="col-md-6">
                                 <select id="level" class="form-control" name="planes_class_seat" value="{{ old('level') }}" required>
                                   <option value="Ekonomi">Ekonomi</option>
@@ -135,13 +137,14 @@
                                     </span>
                                 @endif
                             </div>
+                        </div>
                               <button type="submit" class="btn btn-primary" id="submit">
                                     Submit
                         </button>
                         <button type="reset" class="btn btn-danger">
                                     Reset
                         </button>
-                        <a href="{{route('planes_schedule.index')}}" class="btn btn-light pull-right">Back</a>
+                        <a href="{{route('planes_reservation.index')}}" class="btn btn-light pull-right">Back</a>
             		      </div>
             		   </div>
             		</div>
@@ -154,7 +157,7 @@
   <div class="modal-dialog modal-lg" role="document" >
     <div class="modal-content" style="background: #fff;">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cari Pesawat</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cari Pelanggan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -163,11 +166,21 @@
                         <table id="lookup" class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th>NIK</th>
-                                    <th>NAME</th>
-                                    <th>ADDRESS</th>
-                                    <th>PHONE</th>
-                                    <th>GENDER</th>
+                                    <th>
+                              NIK
+                            </th>
+                            <th>
+                              Nama
+                            </th>
+                            <th>
+                              Alamat
+                            </th>
+                            <th>
+                              No Telephone
+                            </th>
+                            <th>
+                              Jenis Kelamin
+                            </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -191,7 +204,7 @@
   <div class="modal-dialog modal-lg" role="document" >
     <div class="modal-content" style="background: #fff;">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cari Bandara</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cari Jadwal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

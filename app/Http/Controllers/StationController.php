@@ -28,7 +28,10 @@ class StationController extends Controller
 
     public function index()
     {
-
+        if(Auth::user()->level == 'OPERATOR') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
         $datas = Station::get();
         return view('station.index', compact('datas'));
     }
@@ -84,9 +87,10 @@ class StationController extends Controller
 
     public function edit($id)
     {   
-       
- 
-
+        if(Auth::user()->level == 'OPERATOR') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
         $data = Station::findOrFail($id);
         $users = User::get();
         return view('station.edit', compact('data', 'users'));

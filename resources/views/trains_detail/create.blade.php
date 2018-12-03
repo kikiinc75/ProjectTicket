@@ -85,10 +85,18 @@
                         <table id="lookup" class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th>NAMA KERETA</th>
-                                    <th>ECO SEAT</th>
-                                    <th>BUS SEAT</th>
-                                    <th>EXEC SEAT</th>
+                                    <th>
+                              Nama Kereta
+                            </th>
+                            <th>
+                              Jumlah Kursi Ekonomi
+                            </th>
+                            <th>
+                              Jumlah Kursi Bisnis
+                            </th>
+                            <th>
+                              Jumlah Kursi Executive
+                            </th>
                                 </tr>
                             </thead>
                             <tbody>

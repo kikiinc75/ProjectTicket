@@ -34,16 +34,16 @@
                       <thead>
                           <tr>
                             <th>
-                              NAMA PESAWAT
+                              Nama Pesawat
                             </th>
                             <th>
-                              ECO SEAT 
+                              Jumlah Kursi Ekonomi
                             </th>
                             <th>
-                              BUS SEAT
+                              Jumlah Kursi Bisnis
                             </th>
                             <th>
-                              FIRST SEAT
+                              Jumlah Kursi Utama
                             </th>
                             <th>
                             Action

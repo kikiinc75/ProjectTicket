@@ -27,20 +27,20 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Station</h4>
+                  <h4 class="card-title">Data Stasiun</h4>
                   
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
                       <thead>
                           <tr>
                             <th>
-                              CODE 
+                              Kode Stasiun 
                             </th>
                             <th>
-                              CITY 
+                              Kota
                             </th>
                             <th>
-                              NAMA STATION
+                              Nama Stasiun
                             </th>
                             <th>
                             Action

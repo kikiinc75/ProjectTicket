@@ -48,7 +48,7 @@ var check = function() {
                           <h4 class="card-title">Tambah Data Kereta</h4>
 
                              <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">NAMA KERETA</label>
+                                <label for="name" class="col-md-4 control-label">Nama Kereta</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name" value="">
                                     @if ($errors->has('name'))
@@ -59,7 +59,7 @@ var check = function() {
                                 </div>
                             </div>
                              <div class="form-group{{ $errors->has('eco_seat_qty') ? ' has-error' : '' }}">
-                                <label for="eco_seat_qty" class="col-md-4 control-label">ECO SEAT</label>
+                                <label for="eco_seat_qty" class="col-md-4 control-label">Jumlah Kursi Ekonomi</label>
                                 <div class="col-md-6">
                                     <input id="eco_seat_qty" type="number"  class="form-control" name="eco_seat_qty" value="">
                                     @if ($errors->has('eco_seat_qty'))
@@ -71,7 +71,7 @@ var check = function() {
                             </div>
 
                             <div class="form-group{{ $errors->has('bus_seat_qty') ? ' has-error' : '' }}">
-                               <label for="bus_seat_qty" class="col-md-4 control-label">BUS SEAT </label>
+                               <label for="bus_seat_qty" class="col-md-4 control-label">Jumlah Kursi Bisnis</label>
                                <div class="col-md-6">
                                    <input id="bus_seat_qty" type="number"  class="form-control" name="bus_seat_qty" value="" required="">
                                    @if ($errors->has('bus_seat_qty'))
@@ -82,7 +82,7 @@ var check = function() {
                                </div>
                            </div>
                            <div class="form-group{{ $errors->has('exec_seat_qty') ? ' has-error' : '' }}">
-                               <label for="exec_seat_qty" class="col-md-4 control-label">EXEC SEAT</label>
+                               <label for="exec_seat_qty" class="col-md-4 control-label">Jumlah Kursi Executive</label>
                                <div class="col-md-6">
                                    <input id="exec_seat_qty" type="number" class="form-control" name="exec_seat_qty" value="">
                                    @if ($errors->has('exec_seat_qty'))

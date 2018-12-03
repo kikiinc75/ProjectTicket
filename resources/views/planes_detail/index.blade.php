@@ -38,7 +38,7 @@
                               Nama Pesawat
                             </th>
                             <th>
-                              Code
+                              Kode Pesawat
                             </th>
                             <th>
                               Created At

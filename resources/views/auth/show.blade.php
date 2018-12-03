@@ -38,8 +38,6 @@ var check = function() {
 @extends('layouts.index')
 
 @section('content')
-<div class="main-panel">
-  <div class="content-wrapper">
   <div class="row">
             <div class="col-md-12 d-flex align-items-stretch grid-margin">
               <div class="row flex-grow">
@@ -106,9 +104,5 @@ var check = function() {
                 </div>
               </div>
             </div>
-
-</div>
-  </div>
-  @include('layouts.footer')
 </div>
 @endsection

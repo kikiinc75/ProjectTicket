@@ -28,6 +28,10 @@ class TrainsdetailController extends Controller
     }
     public function index()
     {
+        if(Auth::user()->level == 'OPERATOR') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
         $datas = Trains_detail::get();
         return view('Trains_detail.index', compact('datas'));
     }
@@ -77,6 +81,10 @@ class TrainsdetailController extends Controller
      */
         public function edit($id)
     {   
+        if(Auth::user()->level == 'OPERATOR') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
         $nama_trains=Trains_detail::where('trains_id')->with('Trains')->get();
         $data = Trains_detail::findOrFail($id);
         $users = User::get();

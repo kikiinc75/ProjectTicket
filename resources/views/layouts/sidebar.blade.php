@@ -23,6 +23,7 @@
               </button>
             </div>
           </li>
+          @if(Auth::user()->level=='ADMIN')
           <li class="nav-item">
             <a class="nav-link" href="/">
               <i class="menu-icon mdi mdi-television"></i>
@@ -48,7 +49,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-content-copy"></i>
+              <i class="menu-icon fa fa-users"></i>
               <span class="menu-title">Data Aplikasi</span>
               <i class="menu-arrow"></i>
             </a>
@@ -120,5 +121,64 @@
               </ul>
             </div>
           </li>
+          @else
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#transaksi" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Reservation</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="transaksi">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('planes_reservation.index')}}">Planes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('trains_reservation.index')}}">Trains</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon fa fa-users"></i>
+              <span class="menu-title">Data Aplikasi</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('customer.index')}}">Data Customer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('user.index')}}">Data User</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#schedule" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon fa fa-calendar"></i>
+              <span class="menu-title">Schedule</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="schedule">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('planes_schedule.index')}}">Pesawat</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{route('trains_schedule.index')}}">Kereta Api</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          @endif
         </ul>
       </nav>
