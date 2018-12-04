@@ -27,8 +27,10 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Jadwal Pesawat</h4>
-                  
+                  <h4 class="card-title">Data Jadwal Pesawat
+                  <a style="float: right;" href="{{url('laporan/pesawat/cetakEX')}}" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+                  <a style="float: right; margin-right: 5px; " href="{{ url('laporan/pesawat/cetakPDF') }}" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export Pdf</a>
+                  </h4>
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
                       <thead>
@@ -58,7 +60,7 @@
                                 Kursi pilihan
                             </th>
                             <th>
-                                Price
+                                Harga
                             </th>
                             <th>
                                 Action

@@ -121,6 +121,8 @@
   <script src="{{url('assets/js/select2.min.js')}}"></script>
   <script src="{{url('assets/js/jquery.mask.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+
   @include('sweet::alert')
   @section('js')
 

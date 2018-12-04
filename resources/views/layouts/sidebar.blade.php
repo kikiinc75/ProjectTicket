@@ -18,9 +18,6 @@
                   </div>
                 </div>
               </div>
-              <button class="btn btn-success btn-block">New Project
-                <i class="mdi mdi-plus"></i>
-              </button>
             </div>
           </li>
           @if(Auth::user()->level=='ADMIN')
@@ -121,6 +118,23 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#report" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-receipt"></i>
+              <span class="menu-title">Laporan Diagram</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="report">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{url('laporan/hari')}}">Harian</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{url('laporan/bulan')}}">Bulanan</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           @else
           <li class="nav-item">
             <a class="nav-link" href="/">
@@ -175,6 +189,23 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="{{route('trains_schedule.index')}}">Kereta Api</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#report" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-receipt"></i>
+              <span class="menu-title">Laporan Diagram</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="report">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{url('laporan/hari')}}">Harian</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{url('laporan/bulan')}}">Bulanan</a>
                 </li>
               </ul>
             </div>
