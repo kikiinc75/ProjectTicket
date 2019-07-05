@@ -11,7 +11,7 @@ A Web Admin Dashboard for managing Ticket Trains and Plains .
 * Using eqoluent
 * and many things
 
-#How to install Installation
+# How to install Installation
 - Run composer install (Inside project)
 - then Run cp .env.example .env
 - After that php artisan key:generate
