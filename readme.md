@@ -12,7 +12,7 @@ A Web Admin Dashboard for managing Ticket Trains and Plains .
 * and many things
 
 #How to install Installation
-- Run composer update (Inside project)
+- Run composer install (Inside project)
 - then Run cp .env.example .env
 - After that php artisan key:generate
 - don't forget create database (your Database name) on phpmyadmin
