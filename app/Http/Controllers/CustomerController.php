@@ -37,7 +37,7 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-      public function create()
+    public function create()
     {
         return view('customer.create', compact('users'));
     }
