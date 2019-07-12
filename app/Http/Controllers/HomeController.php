@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Trains_schedule;
 use App\Planes_schedule;
 use App\Planes_reservation;
-use App\trains_reservation;
+use App\Trains_reservation;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Customer;
